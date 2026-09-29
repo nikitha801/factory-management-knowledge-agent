@@ -330,7 +330,7 @@ should remain listed in:
 
 ---
 
-## 👥 Project
+##  Project
 
 **Factory Maintenance Knowledge Agent**
 

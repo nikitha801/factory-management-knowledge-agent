@@ -104,9 +104,9 @@ with st.sidebar:
 
     model_choice = st.selectbox(
         "Groq Model",
-        options=["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"],
+        options=["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768", "deepseek-r1-distill-llama-70b", "openai/gpt-oss-120b"],
         index=0,
-        help="openai/gpt-oss-120b is the official recommended hackathon model"
+        help="llama-3.3-70b-versatile is the recommended high-performance Groq model"
     )
 
     if st.button("💾 Save Keys to .env", use_container_width=True):
@@ -126,15 +126,18 @@ with st.sidebar:
     st.subheader("🧠 Plant Memory Seeder")
     st.caption("Pre-load factory history & technician tribal knowledge into Hindsight:")
     if st.button("🚀 Seed Factory History", use_container_width=True):
-        if not hindsight_key:
-            st.error("Please enter a valid Hindsight API Key above!")
-        else:
-            with st.spinner("Injecting historical machine logs into Hindsight..."):
-                try:
-                    seed_factory_memory(api_key=hindsight_key, bank_id=bank_id)
-                    st.success("✅ Factory memory successfully seeded!")
-                except Exception as e:
-                    st.error(f"Seeding failed: {e}")
+        with st.spinner("Injecting historical machine logs into Hindsight memory bank..."):
+            try:
+                result = seed_factory_memory(api_key=hindsight_key if hindsight_key else "demo-local-key", bank_id=bank_id)
+                st.success(f"✅ Factory memory successfully seeded! ({result.get('total_seeded', 0)} incidents loaded)")
+                with st.expander("📋 View Recalled Historical Incidents", expanded=True):
+                    for inc in result.get("incidents", []):
+                        st.markdown(f"**🏭 {inc['machine_id']} (`{inc['error_code']}`)** — *{inc['technician']}*")
+                        st.write(inc["text"])
+                        st.caption(f"Tags: {', '.join(inc['tags'])}")
+                        st.divider()
+            except Exception as e:
+                st.error(f"Seeding failed: {e}")
 
     st.divider()
     st.caption("💡 **Tip for Hackathon Demo**: Show Tab 1 side-by-side comparison to demonstrate how Hindsight transforms generic manual answers into expert shop-floor fixes!")

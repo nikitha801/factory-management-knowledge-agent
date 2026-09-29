@@ -1,0 +1,90 @@
+[
+  {
+    "id": "CNC-101",
+    "name": "5-Axis High-Speed CNC Milling Machine",
+    "model": "Haas VF-4SS",
+    "location": "Machining Workshop - Bay 1",
+    "installation_year": 2021,
+    "status": "Operational",
+    "oem_manual": {
+      "E-402": {
+        "title": "Spindle Thermal Overload & Lubrication Fault",
+        "criticality": "HIGH",
+        "oem_diagnosis": "Spindle temperature sensor exceeds 75°C due to inadequate oil flow or bearing wear.",
+        "oem_procedure": "1. Shut down machine immediately.\n2. Flush spindle coolant lines.\n3. Replace spindle lubrication pump unit if pressure remains below 2.5 bar."
+      },
+      "E-105": {
+        "title": "X-Axis Servo Motor Current Limit Exceeded",
+        "criticality": "MEDIUM",
+        "oem_diagnosis": "High mechanical resistance on X-axis ball screw or failed drive transistor.",
+        "oem_procedure": "Inspect ball screw for debris, re-grease guideways, test servo amplifier drive current."
+      },
+      "E-301": {
+        "title": "Through-Spindle Coolant Flow Low",
+        "criticality": "LOW",
+        "oem_diagnosis": "Coolant intake filter clogged or booster pump failure.",
+        "oem_procedure": "Clean 50-micron mesh filter, check pump impeller rotation."
+      }
+    }
+  },
+  {
+    "id": "HYD-204",
+    "name": "500-Ton Heavy Hydraulic Press",
+    "model": "Schuler HP-500T",
+    "location": "Press Shop - Bay 2",
+    "installation_year": 2018,
+    "status": "Warning - Vibration Detected",
+    "oem_manual": {
+      "E-402": {
+        "title": "Hydraulic Line Pressure Fluctuation & Cavitation",
+        "criticality": "CRITICAL",
+        "oem_diagnosis": "Hydraulic main pump cavitation caused by air entrapment or severe fluid viscosity breakdown.",
+        "oem_procedure": "Bleed hydraulic circuit valve V3, drain fluid, perform complete pump overhaul."
+      },
+      "E-208": {
+        "title": "Proportional Control Valve Position Fault",
+        "criticality": "HIGH",
+        "oem_diagnosis": "Feedback LVDT sensor signal out of calibration range.",
+        "oem_procedure": "Recalibrate LVDT zero point, inspect 24V DC solenoid wiring."
+      }
+    }
+  },
+  {
+    "id": "ROB-302",
+    "name": "Heavy Payload Robotic Arm",
+    "model": "KUKA KR 210 R2700",
+    "location": "Assembly Line 1 - Body Welding",
+    "installation_year": 2022,
+    "status": "Operational",
+    "oem_manual": {
+      "E-501": {
+        "title": "MIG Wire Feed Encoder Deviation",
+        "criticality": "MEDIUM",
+        "oem_diagnosis": "Friction in wire conduit tube or worn drive rollers.",
+        "oem_procedure": "Blow out liner with compressed air, replace knurled feed rollers."
+      },
+      "E-602": {
+        "title": "Axis 3 Resolver Synchronization Error",
+        "criticality": "HIGH",
+        "oem_diagnosis": "Resolver cable shielding damaged or mechanical backlash in gear reducer.",
+        "oem_procedure": "Check EMD calibration tool, re-sync Axis 3 home position."
+      }
+    }
+  },
+  {
+    "id": "CONV-401",
+    "name": "Automated Pallet Conveyor System",
+    "model": "Siemens Simatic S7-1500 VFD",
+    "location": "Packaging & Logistics",
+    "installation_year": 2020,
+    "status": "Operational",
+    "oem_manual": {
+      "E-102": {
+        "title": "VFD Inverter Overcurrent Trip",
+        "criticality": "HIGH",
+        "oem_diagnosis": "Conveyor belt mechanical jam or acceleration ramp set too steep.",
+        "oem_procedure": "Check drive roller bearings, adjust VFD parameter P1120 acceleration time."
+      }
+    }
+  }
+]

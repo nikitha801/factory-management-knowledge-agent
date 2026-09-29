@@ -1,4 +1,4 @@
-# factory-management-knowledge-agent
+
 #  Factory Maintenance Knowledge Agent
 
 An AI-powered knowledge assistant for factory maintenance teams that combines **OEM machine manuals** with **past maintenance experiences** to help technicians diagnose machine issues faster and make better-informed maintenance decisions.
